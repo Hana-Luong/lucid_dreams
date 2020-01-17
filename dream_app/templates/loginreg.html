@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Log-in and Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lucid Dream">
+  <link href="../static/css/normalize.css" rel="stylesheet">
+  <link href="../static/css/loginregstyle.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"> </script>   
+<![endif]-->
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="myflexcontainer">
+      <main role="main">
+        <div class="container">
+          <img src="../static/images/loginregbgr.gif" width="1264" height="1663" alt="Log in and Registration">
+          <div class="businessname">
+            <h1>LUCID DREAMS</h1>
+          </div>
+          <div class="pageheading"><!-- i need it in this case to give the coordinates-->
+            <P>WELCOME TO LUCIDDREAMS.COM.</p>
+            <p>YOU CAN LOGIN/REGISTER TO READ ALL</p>
+            <p>AVAILABLE LUCCID DREAMS</P>
+            <div class="formblock"><!--no css yet-->
+              <h3>Log In</h3>  
+              <div class=displayerrors><!-- no css for this yet-->
+                {% if messages %}
+                  <ul class=" messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div><!-- end of displayerrors-->   
+              <form action="login" method="post">
+                {% csrf_token %}
+                  <p>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email">
+                  </p>
+                  <p>
+                    <label for="password">Password</label>
+                    <input type="text" id="password" name="password">
+                  </p>
+                  <p>
+                    <input type="submit" value="Log In">
+              </form>
+            </div><!--end of formblock; needed to give space between them-->
+            <div class ="formblock"><!--another formblock-->
+              <h3>Registration</h3>  
+              <div class=displayerrors><!-- no css for this yet-->
+                {% if messages %}
+                  <ul class=" messages">
+                    {% for message in messages %}
+                      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div><!-- end of displayerrors-->                
+                <form action="registration" method="post">
+                  {% csrf_token %}
+                    <p>
+                      <label for="first_name">First Name</label>
+                      <input type="text" id="first_name" name="first_name">
+                    </p>
+                    <p>
+                      <label for="last_name">Last Name</label>
+                      <input type="text" id="last_name" name="last_name">
+                    </p>
+                    <p>
+                      <label for="email">Email</label>
+                      <input type="text" id="email" name="email">
+                    </p>
+                    <p>
+                      <label for="password">Password</label>
+                      <input type="text" id="password" name="password">
+                    </p>
+                    <p>
+                      <label for="confrmpw">Confirm PW</label>
+                      <input type="text" id="confirm_pw" name="confirm_pw">
+                    </p>
+                    <p>
+                      <input type="submit" value="Register">
+                    </p>
+                </form>
+                <p>OR YOU CAN READ SOME LIMITED LUCID DREAMS</p>
+                <p>THAT AUTHORS GIVE ACCESS TO THE PUBLIC...</p>
+                <p><a href="/dreams">Dashboard</a></p>
+              </div><!--end of the second formblock-->
+          </div> <!-- end of loginregdisplay-->
+          <div class="footertab">Copyright &copy; 2020 yourluciddrems.com</div>
+        </div><!--end of container -->
+      </main> <!-- end of main -->
+    </div> <!-- end of flex container -->
+  </div> <!-- end of wrapper -->
+</body>
+
+</html>

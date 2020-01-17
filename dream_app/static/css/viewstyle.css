@@ -1,0 +1,136 @@
+body { font-family: Arial,"ArialMT", sans-serif; 
+       background-color: #282828; 
+}
+#wrapper {  background-color: #282828;
+            width: 70%;
+            margin: auto;
+            font-size: 1.27vw;
+            color: black;
+} 
+#myflexcontainer { display: -webkit-flex;
+                   display: flex;
+                   -webkit-flex-direction: row;
+                   flex-direction: row; 
+}
+main, h1, h2 { display: block; }
+main { padding: 0 0 0; }
+main { -webkit-flex: 7;
+       flex: 7;
+}
+img { width: 100%; 
+      height: auto;
+}
+h1 {color: #e331e3 ;
+    font-size: 200%;
+    text-shadow: 0.2vw 0.2vw #ffcc00;}
+.container {
+  position: relative;
+}
+.businessname {
+  position: absolute;
+  top: 9.5%;
+  left: 18%;
+  font-size: 150%;
+  text-align: center;
+}
+.pageheading {
+  position: absolute;
+  top: 22%;
+  left: 25%;  
+}
+.typing {
+  position: absolute;
+  top: 56%; 
+  right: 18.5%;
+  left: 23%;
+  font-size: 87%;
+  text-align: left;
+}
+a { color: #FF00FF;}
+.contact {
+  position: absolute;
+  top: 24.5%;
+  left: 19.5%;
+}
+.introtab {
+  position: absolute;
+  top: 18%;
+  left: 80.6%;
+}
+.silencetab {
+ position: absolute;
+  top: 32.7%;
+  left: 84.5%;
+}
+.intentiontab {
+  position: absolute;
+  top: 42.5%;
+  left: 84.5%;
+}
+.tenantsbuyerstab {
+  position: absolute;
+  top: 52.2%;
+  left: 84.5%;
+}
+.landlordssellerstab {
+  position: absolute;
+  top: 62%;
+  left: 84.5%;
+}
+.additionalstab {
+  position: absolute;
+  top: 71.8%;
+  left: 84.5%;
+}
+.rumblingstab {
+  position: absolute;
+  top: 81.6%;
+  left: 84.5%;
+}
+.credittab {
+  position: absolute;
+  top: 95%;
+  left: 64.2%;
+}
+.footertab
+{ position: absolute;
+  top: 90%;
+  left: 42%;
+  font-family: "French Script MT", serif;
+}
+#mobile { display: none; 
+}
+#desktop { display: inline; 
+}
+@media only screen and (max-width: 1024px) {
+            body { margin: 0; padding: 0; } 
+            #wrapper { width: auto; margin: 0; 
+            font-size: 1.78vw;            
+            }
+            .typing {
+              position: absolute;
+              top: 56%; 
+              right: 18.5%;
+              left: 23%;
+              font-size: 1.52vw;
+              text-align: left;
+            }
+            #myflexcontainer { 
+                   display: -webkit-flex;
+                   display: flex;
+                   -webkit-flex-direction: row;
+                   flex-direction: row; }
+}   
+@media only screen and (max-width: 768px) {
+            nav { -webkit-order: 1;
+                   order: 1;   }
+            #wrapper { font-size: 1.8vw;} 
+            .typing {
+                font-size: 1.4vw;
+              
+            }
+            .footertab { font-size: 1.15vw;}
+             #mobile { display: inline; }
+             #desktop { display: none; }
+}
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Dashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lucid Dreams">
+<link href="../static/css/viewstyle.css" rel="stylesheet">
+<link href="../static/css/dashboardstyle.css" rel="stylesheet"> 
+<!--[if lt IE 9]>
+   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"> </script>   
+<![endif]--> 
+</head>
+<body>
+<div id="wrapper">
+  <div id="myflexcontainer">  
+    <main role="main"> 
+    <div class="container">
+      <img src="../static/images/dashboardbgr.gif" width="1264" height="1663" alt="Dashboard!" >
+    <div class="businessname"><h1>YOUR LUCID DREAMS</h1></div>   
+    <div class="introtab">Welcome</div>
+
+    <div class="pageheading">
+
+    <h3>Lucid Dreams Availale for Reading</h3>
+    <h4><a href="/dreams/new">POST A NEW LUCID DREAM</a></h4>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Date Created</th>
+            <th>Date Updated</th>
+            <th>Action</th>
+        </tr>
+        {% for dream in all_dreams_available %}
+        <tr>
+            <td>{{dream.title}}</td>
+            <td>{{dream.access_level}}</td>
+            <td>{{dream.author.first_name}} {{dream.author.last_name}}</td>
+            <td>{{dream.created_at}}</td>
+            <td>{{dream.updated_at}}</td>
+            {% if userid != dream.author.id %} 
+                <td><a href="dreams/{{dream.id}}">View</a>  <a href="favoritedream/{{dream.id}}">Favorite</a></td>
+            {% else %}
+                <td><a href="dreams/{{dream.id}}">View</a> <a href="dreams/edit/{{dream.id}}">Edit</a> <a href="deleteadream/{{dream.id}}">Remove</a>  
+                     </td>
+            {% endif %}
+            
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>{{givenname}}'s Favorite List</h3>
+    <table>
+      <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Date Created</th>
+          <th>Date Updated</th>
+          <th>Action</th>
+      </tr>
+      {% for dream in my_favorite_dreams %}
+      <tr>
+          <td>{{dream.title}}</td>
+          <td>{{dream.access_level}}</td>
+          <td>{{dream.author.first_name}} {{dream.author.last_name}}</td>
+          <td>{{dream.created_at}}</td>
+          <td>{{dream.updated_at}}</td>
+          {% if userid != dream.author.id %} 
+              <td><a href="dreams/{{dream.id}}">View</a>  <a href="favoritedream/{{dream.id}}">Favorite</a></td>
+          {% else %}
+
+          <td><a href="dreams/{{dream.id}}">View</a> <a href="dreams/edit/{{dream.id}}">Edit</a> <a href="deleteadream/{{dream.id}}">Remove</a>  
+          </td>
+      {% endif %}
+ 
+      </tr>
+      {% endfor %}
+    </table>
+  </div><!-- end of pageheading-->
+
+      <div class="footertab">Copyright &copy; 2020 yourluciddreams.com</div>    
+
+    </div> <!--end of container -->  
+    </main> <!-- end of main -->
+  </div> <!-- end of flex container --> 
+</div> <!-- end of wrapper -->
+</body>
+</html>
